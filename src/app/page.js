@@ -4,6 +4,7 @@ import Sidebar from "@/components/Sidebar"
 import TopBar from "@/components/TopBar";
 import { useState } from "react";
 import Typography from '@mui/material/Typography';
+import Map from '@/components/Map';
 export default function Home() {
   const [open, setOpen] = useState(false);
   const [selectedCodes, setSelectedCodes] = useState([]);
@@ -24,7 +25,7 @@ export default function Home() {
           </Typography>
         ))
       )}
-
+      <Map/>
       <main className="flex">
         <Sidebar open={open} setOpen={setOpen} toggleDrawer={toggleDrawer} handleSelectionChange={handleSelectionChange} />
       </main>
