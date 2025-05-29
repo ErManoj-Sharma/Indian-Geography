@@ -16,13 +16,7 @@ export default function Home() {
 
   return (
     <div >
-      <Map open={open} setOpen={setOpen} toggleDrawer={toggleDrawer}/>
-      {/* {selectedCodes.length > 0 && (
-        selectedCodes.map((code) => (
-          <Typography key={code} variant="h6" gutterBottom sx={{ color: 'white' }}>
-          </Typography>
-        ))
-      )} */}
+     <Map open={open} setOpen={setOpen} toggleDrawer={toggleDrawer} selectedCodes={selectedCodes}/>
       <main className="flex">
         <Sidebar open={open} setOpen={setOpen} toggleDrawer={toggleDrawer} handleSelectionChange={handleSelectionChange} />
       </main>
