@@ -38,72 +38,27 @@ export const cordinate = {
         { code: "WB-Capital", lng: 88.3639, lat: 22.5726, zoom: 3.88, desc: "Kolkata - West Bengal" }
     ],
     in_ut_capital: [
-        {
-            code: "AN",
-            lng: 92.7386,
-            lat: 11.6670,
-            zoom: 6,
-            desc: "Port Blair - Andaman and Nicobar Islands"
-        },
-        {
-            code: "CH",
-            lng: 76.7794,
-            lat: 30.7333,
-            zoom: 6,
-            desc: "Chandigarh - Chandigarh"
-        },
-        {
-            code: "DN",
-            lng: 73.0169,
-            lat: 20.3974,
-            zoom: 6,
-            desc: "Daman - Dadra and Nagar Haveli and Daman and Diu"
-        },
-        {
-            code: "DL",
-            lng: 77.1025,
-            lat: 28.7041,
-            zoom: 6,
-            desc: "New Delhi - Delhi (NCT)"
-        },
-        {
-            code: "JK",
-            lng: 74.7973,
-            lat: 34.0837,
-            zoom: 6,
-            desc: "Srinagar (Summer) - Jammu and Kashmir"
-        },
-        {
-            code: "JK-W",
-            lng: 74.8600,
-            lat: 32.7266,
-            zoom: 6,
-            desc: "Jammu (Winter) - Jammu and Kashmir"
-        },
-        {
-            code: "LA",
-            lng: 77.5770,
-            lat: 34.1526,
-            zoom: 6,
-            desc: "Leh - Ladakh"
-        },
-        {
-            code: "LD",
-            lng: 72.6167,
-            lat: 10.5667,
-            zoom: 6,
-            desc: "Kavaratti - Lakshadweep"
-        },
-        {
-            code: "PY",
-            lng: 79.8083,
-            lat: 11.9139,
-            zoom: 6,
-            desc: "Puducherry - Puducherry"
-        }
-    ],
+            {code:"AN-Capital",lng:92.7386,lat:11.6670,zoom:6,desc:"Port Blair - Andaman and Nicobar Islands"},
+            {code:"CH-Capital",lng:76.7794,lat:30.7333,zoom:6,desc:"Chandigarh - Chandigarh"},
+            {code:"DN-Capital",lng:73.0169,lat:20.3974,zoom:6,desc:"Daman - Dadra and Nagar Haveli and Daman and Diu"},
+            {code:"DL-Capital",lng:77.1025,lat:28.7041,zoom:6,desc:"New Delhi - Delhi (NCT)"},
+            {code:"JK-Capital",lng:74.7973,lat:34.0837,zoom:6,desc:"Srinagar (Summer) - Jammu and Kashmir"},
+            {code:"JK-W-Capital",lng:74.8600,lat:32.7266,zoom:6,desc:"Jammu (Winter) - Jammu and Kashmir"},
+            {code:"LA-Capital",lng:77.5770,lat:34.1526,zoom:6,desc:"Leh - Ladakh"},
+            {code:"LD-Capital",lng:72.6167,lat:10.5667,zoom:6,desc:"Kavaratti - Lakshadweep"},
+            {code:"PY-Capital",lng:79.8083,lat:11.9139,zoom:6,desc:"Puducherry - Puducherry"}],
+    in_ut : [
+            {code:"AN",lng:92.7386,lat:11.6670,zoom:6,desc:"Andaman and Nicobar Islands"},
+            {code:"CH",lng:76.7794,lat:30.7333,zoom:6,desc:"Chandigarh"},
+            {code:"DN",lng:73.0169,lat:20.3974,zoom:6,desc:"Daman - Dadra and Nagar Haveli and Daman and Diu"},
+            {code:"DL",lng:77.1025,lat:28.7041,zoom:6,desc:"Delhi (NCT)"},
+            {code:"JK",lng:74.7973,lat:34.0837,zoom:6,desc:"Jammu and Kashmir"},
+            {code:"LA",lng:77.5770,lat:34.1526,zoom:6,desc:"Ladakh"},
+            {code:"LD",lng:72.6167,lat:10.5667,zoom:6,desc:"Lakshadweep"},
+            {code:"PY",lng:79.8083,lat:11.9139,zoom:6,desc:"Puducherry"}],
     in_st: [
         { code: "AP", lng: 80.2185, lat: 15.9129, zoom: 3.88, desc: "Andhra Pradesh" },
+            
         { code: "AR", lng: 93.6167, lat: 27.1000, zoom: 3.88, desc: "Arunachal Pradesh" },
         { code: "AS", lng: 91.7898, lat: 26.2006, zoom: 3.88, desc: "Assam" },
         { code: "BR", lng: 85.1376, lat: 25.5941, zoom: 3.88, desc: "Bihar" },

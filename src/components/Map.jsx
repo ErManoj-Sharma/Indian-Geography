@@ -3,7 +3,9 @@ import * as maptilersdk from '@maptiler/sdk';
 import "@maptiler/sdk/dist/maptiler-sdk.css";
 import TopBar from './TopBar';
 import { india } from '@/constant/Cordinate';
-import { cordinate } from '@/constant/Cordinate';
+import { createGeoJSON } from '@/helper/createGeoJson';
+import { removeLayer } from '@/helper/removeLayer';
+import { getCordinateForCodes } from '@/helper/getCordinateForCodes';
 export default function Map({ open,
   setOpen,
   toggleDrawer, selectedCodes }) {
@@ -27,33 +29,6 @@ export default function Map({ open,
     markersRef.current.push(marker);
   };
 
-  // Utility: Convert your array into GeoJSON format
-  const createGeoJSON = (data) => {
-    return {
-      type: "FeatureCollection",
-      features: data.map(({ lng, lat, desc }) => ({
-        type: "Feature",
-        properties: { name: desc },
-        geometry: {
-          type: "Point",
-          coordinates: [lng, lat],
-        },
-      })),
-    };
-  };
-
-  // Helper to clean up the previous layer/source if present
-  const removeStateLayer = () => {
-
-    if (!map.current) return;
-    if (map.current.getLayer("state-names-layer")) {
-      map.current.removeLayer("state-names-layer");
-    }
-    if (map.current.getSource("states-labels")) {
-      map.current.removeSource("states-labels");
-    }
-  };
-
   const updateMarkers = (coordinates = []) => {
     if (!map.current) return;
 
@@ -74,7 +49,7 @@ export default function Map({ open,
 
     // Handle state capitals
     if (Array.isArray(coordinates.in_st)) {
-      removeStateLayer();
+      removeLayer(map,"state-names-layer","states-labels");
 
       const stateLabelsGeoJSON = createGeoJSON(coordinates.in_st);
       // Remove old layer/source if they exist before adding new ones
@@ -96,14 +71,48 @@ export default function Map({ open,
           "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
         },
         paint: {
-          "text-color": "#111",
+          "text-color": "blue",
           "text-halo-color": "#fff",
           "text-halo-width": 1,
         },
       });
 
     } else {
-      removeStateLayer();
+      removeLayer(map,"state-names-layer","states-labels");
+    }
+
+    // Handle Ut
+    if (Array.isArray(coordinates.in_ut)) {
+      removeLayer(map,"ut-names-layer","ut-labels");
+
+      const stateLabelsGeoJSON = createGeoJSON(coordinates.in_ut);
+      // Remove old layer/source if they exist before adding new ones
+
+      // Add GeoJSON source for state names
+      map.current.addSource("ut-labels", {
+        type: "geojson",
+        data: stateLabelsGeoJSON,
+      });
+      // Add a symbol layer to show state names
+      map.current.addLayer({
+        id: "ut-names-layer",
+        type: "symbol",
+        source: "ut-labels",
+        layout: {
+          "text-field": ["get", "name"],
+          "text-size": 14,
+          "text-anchor": "center",
+          "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+        },
+        paint: {
+          "text-color": "red",
+          "text-halo-color": "#fff",
+          "text-halo-width": 1,
+        },
+      });
+
+    } else {
+      removeLayer(map,"ut-names-layer","ut-labels");
     }
 
 
@@ -124,17 +133,6 @@ export default function Map({ open,
 
   };
 
-  const getCordinateForCodes = (selectedCodes) => {
-    const result = {};
-
-    selectedCodes.forEach(code => {
-      if (cordinate[code]) {
-        result[code] = cordinate[code];
-      }
-    });
-
-    return result;
-  }
   useEffect(() => {
     if (map.current && selectedCodes?.length >= 0) {
       updateMarkers(getCordinateForCodes(selectedCodes));
