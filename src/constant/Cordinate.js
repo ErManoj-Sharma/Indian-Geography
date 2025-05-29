@@ -1,6 +1,106 @@
-export const india = {  lng: 81.31, lat: 22.91 ,zoom: 3.88};
+export const india = { lng: 81.31, lat: 22.91, zoom: 3.88 };
 
-export const cordinate= {
-    in_capital:{lng:77.3052, lat: 28.6022, zoom: 3.88, desc:"India's Capital"}}
+export const cordinate = {
+    in_capital: {
+        lng: 77.3052,
+        lat: 28.6022,
+        zoom: 3.88,
+        desc: "India's Capital"
+    },
+    in_st_capital: [
+        { code: "AP", lng: 80.2185, lat: 15.9129, zoom: 3.88, desc: "Amaravati - Andhra Pradesh" },
+        { code: "AR", lng: 93.6167, lat: 27.1000, zoom: 3.88, desc: "Itanagar - Arunachal Pradesh" },
+        { code: "AS", lng: 91.7900, lat: 26.2000, zoom: 3.88, desc: "Dispur - Assam" },
+        { code: "BR", lng: 85.1394, lat: 25.5941, zoom: 3.88, desc: "Patna - Bihar" },
+        { code: "CG", lng: 81.6339, lat: 21.2514, zoom: 3.88, desc: "Raipur - Chhattisgarh" },
+        { code: "GA", lng: 73.8033, lat: 15.2993, zoom: 3.88, desc: "Panaji - Goa" },
+        { code: "GJ", lng: 72.6334, lat: 23.0225, zoom: 3.88, desc: "Gandhinagar - Gujarat" },
+        { code: "HR", lng: 76.8500, lat: 30.7333, zoom: 3.88, desc: "Chandigarh - Haryana" },
+        { code: "HP", lng: 77.2500, lat: 31.1048, zoom: 3.88, desc: "Shimla - Himachal Pradesh" },
+        { code: "JK", lng: 74.8324, lat: 33.7782, zoom: 3.88, desc: "Srinagar - Jammu & Kashmir" },
+        { code: "KA", lng: 77.5946, lat: 12.9716, zoom: 3.88, desc: "Bengaluru - Karnataka" },
+        { code: "KL", lng: 76.9366, lat: 8.5241, zoom: 3.88, desc: "Thiruvananthapuram - Kerala" },
+        { code: "MP", lng: 77.4126, lat: 23.2599, zoom: 3.88, desc: "Bhopal - Madhya Pradesh" },
+        { code: "MH", lng: 72.8777, lat: 19.0760, zoom: 3.88, desc: "Mumbai - Maharashtra" },
+        { code: "MN", lng: 93.9500, lat: 24.7500, zoom: 3.88, desc: "Imphal - Manipur" },
+        { code: "ML", lng: 91.8833, lat: 25.5788, zoom: 3.88, desc: "Shillong - Meghalaya" },
+        { code: "MZ", lng: 92.9376, lat: 23.1645, zoom: 3.88, desc: "Aizawl - Mizoram" },
+        { code: "NL", lng: 94.1126, lat: 25.6667, zoom: 3.88, desc: "Kohima - Nagaland" },
+        { code: "OD", lng: 85.8189, lat: 20.2961, zoom: 3.88, desc: "Bhubaneswar - Odisha" },
+        { code: "PB", lng: 76.7794, lat: 30.7333, zoom: 3.88, desc: "Chandigarh - Punjab" },
+        { code: "RJ", lng: 75.8777, lat: 26.9124, zoom: 3.88, desc: "Jaipur - Rajasthan" },
+        { code: "SK", lng: 88.6226, lat: 27.0330, zoom: 3.88, desc: "Gangtok - Sikkim" },
+        { code: "TN", lng: 80.2785, lat: 13.0878, zoom: 3.88, desc: "Chennai - Tamil Nadu" },
+        { code: "TG", lng: 78.4744, lat: 17.3850, zoom: 3.88, desc: "Hyderabad - Telangana" },
+        { code: "TR", lng: 91.2833, lat: 23.8315, zoom: 3.88, desc: "Agartala - Tripura" },
+        { code: "UP", lng: 80.9462, lat: 26.8467, zoom: 3.88, desc: "Lucknow - Uttar Pradesh" },
+        { code: "UK", lng: 78.0322, lat: 30.3165, zoom: 3.88, desc: "Dehradun - Uttarakhand" },
+        { code: "WB", lng: 88.3639, lat: 22.5726, zoom: 3.88, desc: "Kolkata - West Bengal" }
+    ],
+    in_ut_capital: [
+        {
+            code: "AN",
+            lng: 92.7386,
+            lat: 11.6670,
+            zoom: 6,
+            desc: "Port Blair - Andaman and Nicobar Islands"
+        },
+        {
+            code: "CH",
+            lng: 76.7794,
+            lat: 30.7333,
+            zoom: 6,
+            desc: "Chandigarh - Chandigarh"
+        },
+        {
+            code: "DN",
+            lng: 73.0169,
+            lat: 20.3974,
+            zoom: 6,
+            desc: "Daman - Dadra and Nagar Haveli and Daman and Diu"
+        },
+        {
+            code: "DL",
+            lng: 77.1025,
+            lat: 28.7041,
+            zoom: 6,
+            desc: "New Delhi - Delhi (NCT)"
+        },
+        {
+            code: "JK",
+            lng: 74.7973,
+            lat: 34.0837,
+            zoom: 6,
+            desc: "Srinagar (Summer) - Jammu and Kashmir"
+        },
+        {
+            code: "JK-W",
+            lng: 74.8600,
+            lat: 32.7266,
+            zoom: 6,
+            desc: "Jammu (Winter) - Jammu and Kashmir"
+        },
+        {
+            code: "LA",
+            lng: 77.5770,
+            lat: 34.1526,
+            zoom: 6,
+            desc: "Leh - Ladakh"
+        },
+        {
+            code: "LD",
+            lng: 72.6167,
+            lat: 10.5667,
+            zoom: 6,
+            desc: "Kavaratti - Lakshadweep"
+        },
+        {
+            code: "PY",
+            lng: 79.8083,
+            lat: 11.9139,
+            zoom: 6,
+            desc: "Puducherry - Puducherry"
+        }
+    ]
 
-
+};

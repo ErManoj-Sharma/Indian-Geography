@@ -12,29 +12,54 @@ export default function Map({ open,
   const markersRef = useRef([]);
   maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_MAP_API_KEY;
 
+  // Helper function to create a marker
+  const addMarker = ({ lng, lat, desc }) => {
+    const el = document.createElement('div');
+    // el.className = 'custom-marker bg-green-600 rounded-full w-4 h-4 border-2 border-white shadow';
+
+    const popup = new maptilersdk.Popup({ offset: 25 }).setText(desc || '');
+
+    const marker = new maptilersdk.Marker(el)
+      .setLngLat([lng, lat])
+      .setPopup(popup)
+      .addTo(map.current);
+
+    markersRef.current.push(marker);
+  };
+
   const updateMarkers = (coordinates = []) => {
     if (!map.current) return;
 
     markersRef.current.forEach(marker => marker.remove());
     markersRef.current = [];
-    console.log("coordinates", coordinates);
 
-    Object.entries(coordinates).forEach(([key, coord]) => {
-      const { lng, lat, desc } = coord;
+    // Handle single capital
+    if (coordinates.in_capital) {
+      const { lng, lat, desc } = coordinates.in_capital;
+      addMarker({ lng, lat, desc });
+    }
 
-      const el = document.createElement('div');
-      el.className =
-        'custom-marker bg-blue-600 rounded-full w-4 h-4 border-2 border-white shadow';
+    // Handle state capitals
+    if (Array.isArray(coordinates.in_st_capital)) {
+      coordinates.in_st_capital.forEach(({ lng, lat, desc }) => {
+        addMarker({ lng, lat, desc });
+      });
+    }
 
-      const popup = new maptilersdk.Popup({ offset: 25 }).setText(desc || '');
-
-      const marker = new maptilersdk.Marker(el)
-        .setLngLat([lng, lat])
-        .setPopup(popup)
-        .addTo(map.current);
-
-      markersRef.current.push(marker);
-    });
+    // Handle Union Teretory capitals
+    if (Array.isArray(coordinates.in_ut_capital)) {
+      coordinates.in_ut_capital.forEach(({ lng, lat, desc }) => {
+        addMarker({ lng, lat, desc });
+      });
+    }
+    // Handle mountain ranges with peaks
+    if (Array.isArray(coordinates.in_mountain_ranges)) {
+      coordinates.in_mountain_ranges.forEach(range => {
+        range.peaks.forEach(({ lng, lat, desc }) => {
+          addMarker({ lng, lat, desc });
+        });
+      });
+    }
 
   };
 
