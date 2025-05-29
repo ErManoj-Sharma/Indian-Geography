@@ -10,7 +10,7 @@ export const updateMarkers = (map, markersRef, coordinates = []) => {
   // Handle single capital
   if (coordinates.in_capital) {
     const { lng, lat, desc } = coordinates.in_capital;
-    addMarker(map, markersRef, { lng, lat, desc });
+    addMarker(map, markersRef, { lng, lat, desc }, null);
   }
 
   // Handle state capitals
@@ -201,6 +201,12 @@ export const updateMarkers = (map, markersRef, coordinates = []) => {
     removeLayer(map, "tropic-of-cancer-st-names", "tropic-of-cancer-st-labels");
     removeLayer(map, "tropic-of-cancer-names", "tropic-of-cancer-labels");
 
+  }
+  // handle in_tiger_reserves
+  if (Array.isArray(coordinates.in_tiger_reserve)) {
+    coordinates.in_tiger_reserve.forEach(({ lng, lat,title, desc,state }) => {
+      addMarker(map, markersRef, { lng, lat, title,desc,state },'tiger_reserve');
+    });
   }
 }
 
