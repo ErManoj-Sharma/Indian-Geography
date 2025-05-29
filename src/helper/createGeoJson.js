@@ -12,3 +12,17 @@ export  const createGeoJSON = (data) => {
       })),
     };
   };
+
+export const TropicofCancerGeoJson = {
+  "type": "Feature",
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [68.0, 23.4394],
+      [97.0, 23.4394]
+    ]
+  },
+  "properties": {
+    "name": "Tropic of Cancer"
+  }
+}

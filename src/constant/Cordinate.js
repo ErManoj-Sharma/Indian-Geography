@@ -57,8 +57,7 @@ export const cordinate = {
             {code:"LD",lng:72.6167,lat:10.5667,zoom:6,desc:"Lakshadweep"},
             {code:"PY",lng:79.8083,lat:11.9139,zoom:6,desc:"Puducherry"}],
     in_st: [
-        { code: "AP", lng: 80.2185, lat: 15.9129, zoom: 3.88, desc: "Andhra Pradesh" },
-            
+        { code: "AP", lng: 80.2185, lat: 15.9129, zoom: 3.88, desc: "Andhra Pradesh" }, 
         { code: "AR", lng: 93.6167, lat: 27.1000, zoom: 3.88, desc: "Arunachal Pradesh" },
         { code: "AS", lng: 91.7898, lat: 26.2006, zoom: 3.88, desc: "Assam" },
         { code: "BR", lng: 85.1376, lat: 25.5941, zoom: 3.88, desc: "Bihar" },
@@ -86,6 +85,16 @@ export const cordinate = {
         { code: "UP", lng: 80.9462, lat: 26.8467, zoom: 3.88, desc: "Uttar Pradesh" },
         { code: "UK", lng: 78.0322, lat: 30.3165, zoom: 3.88, desc: "Uttarakhand" },
         { code: "WB", lng: 88.3639, lat: 22.5726, zoom: 3.88, desc: "West Bengal" }
+    ],
+    in_tropic_of_cancer: [
+        { code: "GJ", lng: 72.5714, lat: 23.0225, zoom: 3.88, desc: "Gujarat" },
+        { code: "RJ", lng: 75.7873, lat: 26.9124, zoom: 3.88, desc: "Rajasthan" },
+        { code: "MP", lng: 77.4126, lat: 23.2599, zoom: 3.88, desc: "Madhya Pradesh" },
+        { code: "CG", lng: 81.6339, lat: 21.2514, zoom: 3.88, desc: "Chhattisgarh" },
+        { code: "JH", lng: 85.2799, lat: 23.6102, zoom: 3.88, desc: "Jharkhand" },
+        { code: "WB", lng: 88.3639, lat: 22.5726, zoom: 3.88, desc: "West Bengal" },
+        { code: "TR", lng: 91.9882, lat: 23.8315, zoom: 3.88, desc: "Tripura" },
+        { code: "MZ", lng: 92.9376, lat: 23.1645, zoom: 3.88, desc: "Mizoram" },
     ]
 
 };

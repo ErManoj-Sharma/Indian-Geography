@@ -15,24 +15,23 @@ export default function Map({ open,
 
   useEffect(() => {
     if (map.current && selectedCodes?.length >= 0) {
-      updateMarkers(map,markersRef,getCordinateForCodes(selectedCodes));
+      updateMarkers(map, markersRef, getCordinateForCodes(selectedCodes));
     }
   }, [selectedCodes]);
 
 
   useEffect(() => {
-    if (map.current) return; // stops map from intializing more than once
+  if (map.current) return; // Prevent multiple initializations
 
-    map.current = new maptilersdk.Map({
-      container: mapContainer.current,
-      style: maptilersdk.MapStyle.BASIC,
-      center: [india.lng, india.lat],
-      zoom: india.zoom,
-      hash: true,
-    });
+  map.current = new maptilersdk.Map({
+    container: mapContainer.current,
+    style: maptilersdk.MapStyle.BASIC,
+    center: [india.lng, india.lat],
+    zoom: india.zoom,
+    hash: true,
+  });
 
-
-  }, [india.lng, india.lat, india.zoom, selectedCodes]);
+}, [india.lng, india.lat, india.zoom, selectedCodes]);
 
   return (
     <div className="relative w-full" style={{ height: 'calc(100vh)' }}>
