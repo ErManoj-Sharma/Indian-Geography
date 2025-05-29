@@ -35,8 +35,7 @@ export default function TopBar({ toggleDrawer }) {
                         <MenuIcon />
                     </IconButton>
 
-                    {/* LEFT: Title */}
-                    <Typography
+                    {/* <Typography
                         variant="h6"
                         component="div"
                         sx={{
@@ -48,7 +47,6 @@ export default function TopBar({ toggleDrawer }) {
                         GeoGraphy & Maps
                     </Typography>
 
-                    {/* RIGHT: Created by */}
                     <Typography
                         variant="h6"
                         component="div"
@@ -58,7 +56,7 @@ export default function TopBar({ toggleDrawer }) {
                         }}
                     >
                         Created by: <a href="https://github.com/ErManoj-Sharma" >Manoj Sharma</a>
-                    </Typography>
+                    </Typography> */}
                 </Toolbar>
             </AppBar>
         </Box>

@@ -2,7 +2,6 @@
 import * as React from 'react';
 import Sidebar from "@/components/Sidebar"
 import { useState } from "react";
-import Typography from '@mui/material/Typography';
 import Map from '@/components/Map';
 export default function Home() {
   const [open, setOpen] = useState(false);
