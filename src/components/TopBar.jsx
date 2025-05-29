@@ -8,39 +8,56 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 export default function TopBar({ toggleDrawer }) {
     return (
-        <Box className="absolute top-0 left-0  bg-opacity-80 z-10 " sx={{
-            flexGrow: 1, backgroundColor: '#ffffff00',
-            boxShadow: 'none'
-        }}>
+        <Box
+            className="absolute top-0 left-0 w-full z-10"
+            sx={{
+                flexGrow: 1,
+                backgroundColor: 'transparent',
+                boxShadow: 'none',
+            }}
+        >
             <AppBar
                 position="static"
                 elevation={0}
                 sx={{
-                    backgroundColor: '#ffffff00',
-                    boxShadow: 'none'
+                    backgroundColor: 'transparent',
+                    boxShadow: 'none',
                 }}
             >
                 <Toolbar>
                     <IconButton
                         size="large"
                         edge="start"
-                        color="inherit"
                         aria-label="menu"
                         sx={{ mr: 2, color: 'black' }}
                         onClick={toggleDrawer(true)}
                     >
                         <MenuIcon />
                     </IconButton>
+
+                    {/* LEFT: Title */}
                     <Typography
                         variant="h6"
                         component="div"
                         sx={{
-                            flexGrow: 1,
                             color: 'black',
-                            fontWeight: 'bold'
+                            fontWeight: 'bold',
+                            flexGrow: 1, // Pushes the next Typography to the right
                         }}
                     >
                         GeoGraphy & Maps
+                    </Typography>
+
+                    {/* RIGHT: Created by */}
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{
+                            color: 'black',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        Created by: <a href="#" >Manoj Sharma</a>
                     </Typography>
                 </Toolbar>
             </AppBar>
