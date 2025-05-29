@@ -486,4 +486,11 @@ in_tiger_reserve:[
     desc: "Famous for its unique mangrove ecosystem, Sundarbans Tiger Reserve is the largest tiger reserve in India and is home to the endangered Royal Bengal Tiger."
   }
 ],
+in_expansion:[
+  { code: "In-EXP-N", lng: 74.7696, lat: 37.0744 , zoom: 3.88, desc: "Indira Col(Ladhak)\n37 Degree 6 Minutes North" },
+  { code: "In-EXP-S", lng: 77.551557, lat: 8.077617, zoom: 3.88, desc: "Cape Camorin(Tamilnadu)\n8 Degree 4 Minutes North" },
+  { code: "IN-EXP-E", lng:  97.39464, lat: 28.01418, zoom: 3.88, desc: "Valagu(ArunachalPradesh)\n97 Degree 25 Minutes East" },
+  { code: "IN-EXp-W", lng: 68.5321, lat: 23.5694, zoom: 3.88, desc: "Kach(Gujrat)\n 68 Degree 7 Minutes East" },
+  { code: "IN-EXP-SSEA", lng: 93.8167, lat: 6.75, zoom: 3.88, desc: "Indira Point(Andman & Nikobar Island) \n 6 Degree 4 Minutes North" },
+]
 };

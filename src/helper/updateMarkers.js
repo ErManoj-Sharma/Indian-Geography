@@ -6,6 +6,7 @@ import { handleStates } from '@/helper/handleStates';
 import { handleUTs } from './handleUts';
 import { handleUTCapitals } from './handleUTCapitals';
 import { handleTropicOfCancer } from './handleTropicOfCancer';
+import { handleExpansionOfIndia } from './handleExpansionOfIndia';
 export const updateMarkers = (map, markersRef, coordinates = []) => {
   if (!map.current) return;
 
@@ -58,6 +59,16 @@ export const updateMarkers = (map, markersRef, coordinates = []) => {
     coordinates.in_tiger_reserve.forEach(({ lng, lat, title, desc, state }) => {
       addMarker(map, markersRef, { lng, lat, title, desc, state }, 'tiger_reserve');
     });
+  }
+
+   // handle in_expansion
+  if (Array.isArray(coordinates.in_expansion)) {
+    handleExpansionOfIndia(map,coordinates.in_expansion);
+    coordinates.in_expansion.forEach(({ lng, lat, title, desc }) => {
+      addMarker(map, markersRef, { lng, lat, title, desc }, '');
+    });
+  } else {
+    removeLayer(map, "expansion-names", "expansion-labels");
   }
 }
 

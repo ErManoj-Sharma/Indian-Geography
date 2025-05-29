@@ -30,6 +30,7 @@ export const addMarker = (map, markersRef, { lng, lat, title, desc, state },img_
     const descEl = document.createElement('p');
     descEl.textContent = desc;
     descEl.style.margin = '0';
+    descEl.style.textAlign = 'center';
     popupContent.appendChild(descEl);
   }
 
