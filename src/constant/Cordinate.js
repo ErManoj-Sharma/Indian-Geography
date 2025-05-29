@@ -50,7 +50,7 @@ export const cordinate = {
     in_ut : [
             {code:"AN",lng:92.7386,lat:11.6670,zoom:6,desc:"Andaman and Nicobar Islands"},
             {code:"CH",lng:76.7794,lat:30.7333,zoom:6,desc:"Chandigarh"},
-            {code:"DN",lng:73.0169,lat:20.3974,zoom:6,desc:"Daman - Dadra and Nagar Haveli and Daman and Diu"},
+            {code:"DN",lng:73.0169,lat:20.3974,zoom:6,desc:"Dadra and Nagar Haveli and Daman and Diu"},
             {code:"DL",lng:77.1025,lat:28.7041,zoom:6,desc:"Delhi (NCT)"},
             {code:"JK",lng:74.7973,lat:34.0837,zoom:6,desc:"Jammu and Kashmir"},
             {code:"LA",lng:77.5770,lat:34.1526,zoom:6,desc:"Ladakh"},
