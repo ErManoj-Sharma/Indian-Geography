@@ -1,12 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import * as maptilersdk from '@maptiler/sdk';
 import "@maptiler/sdk/dist/maptiler-sdk.css";
-
-export default function Map() {
+import TopBar from './TopBar';
+import { india } from '@/constant/Cordinate';
+export default function Map({open,
+setOpen,
+toggleDrawer}) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const tokyo = { lng: 139.753, lat: 35.6844 };
-  const zoom = 14;
   maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_MAP_API_KEY;
 
   useEffect(() => {
@@ -15,18 +16,20 @@ export default function Map() {
     map.current = new maptilersdk.Map({
       container: mapContainer.current,
       style: maptilersdk.MapStyle.BASIC,
-      center: [tokyo.lng, tokyo.lat],
-      zoom: zoom
+      center: [india.lng, india.lat],
+      zoom: india.zoom,
+      hash: true,
     });
 
-    new maptilersdk.Marker({color: "#FF0000"})
-      .setLngLat([139.7525,35.6846])
-      .addTo(map.current);
+    // new maptilersdk.Marker({color: "#FF0000"})
+    //   .setLngLat([139.7525,35.6846])
+    //   .addTo(map.current);
 
-  }, [tokyo.lng, tokyo.lat, zoom]);
+  }, [india.lng, india.lat, india.zoom]);
 
   return (
-    <div className="relative w-full" style={{ height: 'calc(100vh - 77px)' }}>
+    <div className="relative w-full" style={{ height: 'calc(100vh)' }}>
+      <TopBar open={open} setOpen={setOpen} toggleDrawer={toggleDrawer} />
       <div ref={mapContainer} className="absolute w-full h-full" />
     </div>
   );

@@ -8,12 +8,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 export default function TopBar({ toggleDrawer }) {
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar 
+        <Box className="absolute top-0 left-0  bg-opacity-80 z-10 " sx={{
+            flexGrow: 1, backgroundColor: '#ffffff00',
+            boxShadow: 'none'
+        }}>
+            <AppBar
                 position="static"
                 elevation={0}
-                sx={{ 
-                    backgroundColor: 'transparent', 
+                sx={{
+                    backgroundColor: '#ffffff00',
                     boxShadow: 'none'
                 }}
             >
@@ -23,12 +26,20 @@ export default function TopBar({ toggleDrawer }) {
                         edge="start"
                         color="inherit"
                         aria-label="menu"
-                        sx={{ mr: 2 }}
+                        sx={{ mr: 2, color: 'black' }}
                         onClick={toggleDrawer(true)}
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{
+                            flexGrow: 1,
+                            color: 'black',
+                            fontWeight: 'bold'
+                        }}
+                    >
                         GeoGraphy & Maps
                     </Typography>
                 </Toolbar>

@@ -1,0 +1,1 @@
+export const india = {  lng: 81.31, lat: 22.91 ,zoom: 3.88};
