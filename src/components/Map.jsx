@@ -27,12 +27,38 @@ export default function Map({ open,
     markersRef.current.push(marker);
   };
 
+  // Utility: Convert your array into GeoJSON format
+  const createGeoJSON = (data) => {
+    return {
+      type: "FeatureCollection",
+      features: data.map(({ lng, lat, desc }) => ({
+        type: "Feature",
+        properties: { name: desc },
+        geometry: {
+          type: "Point",
+          coordinates: [lng, lat],
+        },
+      })),
+    };
+  };
+
+  // Helper to clean up the previous layer/source if present
+  const removeStateLayer = () => {
+
+    if (!map.current) return;
+    if (map.current.getLayer("state-names-layer")) {
+      map.current.removeLayer("state-names-layer");
+    }
+    if (map.current.getSource("states-labels")) {
+      map.current.removeSource("states-labels");
+    }
+  };
+
   const updateMarkers = (coordinates = []) => {
     if (!map.current) return;
 
     markersRef.current.forEach(marker => marker.remove());
     markersRef.current = [];
-
     // Handle single capital
     if (coordinates.in_capital) {
       const { lng, lat, desc } = coordinates.in_capital;
@@ -45,6 +71,41 @@ export default function Map({ open,
         addMarker({ lng, lat, desc });
       });
     }
+
+    // Handle state capitals
+    if (Array.isArray(coordinates.in_st)) {
+      removeStateLayer();
+
+      const stateLabelsGeoJSON = createGeoJSON(coordinates.in_st);
+      // Remove old layer/source if they exist before adding new ones
+
+      // Add GeoJSON source for state names
+      map.current.addSource("states-labels", {
+        type: "geojson",
+        data: stateLabelsGeoJSON,
+      });
+      // Add a symbol layer to show state names
+      map.current.addLayer({
+        id: "state-names-layer",
+        type: "symbol",
+        source: "states-labels",
+        layout: {
+          "text-field": ["get", "name"],
+          "text-size": 14,
+          "text-anchor": "center",
+          "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+        },
+        paint: {
+          "text-color": "#111",
+          "text-halo-color": "#fff",
+          "text-halo-width": 1,
+        },
+      });
+
+    } else {
+      removeStateLayer();
+    }
+
 
     // Handle Union Teretory capitals
     if (Array.isArray(coordinates.in_ut_capital)) {
