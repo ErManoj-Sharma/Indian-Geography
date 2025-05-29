@@ -15,14 +15,41 @@ export  const updateMarkers = (map,markersRef,coordinates = []) => {
 
     // Handle state capitals
     if (Array.isArray(coordinates.in_st_capital)) {
-      coordinates.in_st_capital.forEach(({ lng, lat, desc }) => {
-        addMarker(map,markersRef,{ lng, lat, desc });
+       removeLayer(map,"state-capital-names","states-capital-labels");
+
+      const stateLabelsGeoJSON = createGeoJSON(coordinates.in_st_capital);
+      // Remove old layer/source if they exist before adding new ones
+
+      // Add GeoJSON source for state names
+      map.current.addSource("states-capital-labels", {
+        type: "geojson",
+        data: stateLabelsGeoJSON,
       });
+      // Add a symbol layer to show state names
+      map.current.addLayer({
+        id: "state-capital-names",
+        type: "symbol",
+        source: "states-capital-labels",
+        layout: {
+          "text-field": ["get", "name"],
+          "text-size": 14,
+          "text-anchor": "center",
+          "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+        },
+        paint: {
+          "text-color": "brown",
+          "text-halo-color": "#fff",
+          "text-halo-width": 1,
+        },
+      });
+
+    } else {
+      removeLayer(map,"state-capital-names","states-capital-labels");
     }
 
-    // Handle state capitals
+    // Handle state 
     if (Array.isArray(coordinates.in_st)) {
-      removeLayer(map,"state-names-layer","states-labels");
+      removeLayer(map,"state-names","states-labels");
 
       const stateLabelsGeoJSON = createGeoJSON(coordinates.in_st);
       // Remove old layer/source if they exist before adding new ones
@@ -34,7 +61,7 @@ export  const updateMarkers = (map,markersRef,coordinates = []) => {
       });
       // Add a symbol layer to show state names
       map.current.addLayer({
-        id: "state-names-layer",
+        id: "state-names",
         type: "symbol",
         source: "states-labels",
         layout: {
@@ -51,12 +78,12 @@ export  const updateMarkers = (map,markersRef,coordinates = []) => {
       });
 
     } else {
-      removeLayer(map,"state-names-layer","states-labels");
+      removeLayer(map,"state-names","states-labels");
     }
 
     // Handle Ut
     if (Array.isArray(coordinates.in_ut)) {
-      removeLayer(map,"ut-names-layer","ut-labels");
+      removeLayer(map,"ut-names","ut-labels");
 
       const stateLabelsGeoJSON = createGeoJSON(coordinates.in_ut);
       // Remove old layer/source if they exist before adding new ones
@@ -68,7 +95,7 @@ export  const updateMarkers = (map,markersRef,coordinates = []) => {
       });
       // Add a symbol layer to show state names
       map.current.addLayer({
-        id: "ut-names-layer",
+        id: "ut-names",
         type: "symbol",
         source: "ut-labels",
         layout: {
@@ -85,23 +112,49 @@ export  const updateMarkers = (map,markersRef,coordinates = []) => {
       });
 
     } else {
-      removeLayer(map,"ut-names-layer","ut-labels");
+      removeLayer(map,"ut-names","ut-labels");
     }
 
 
     // Handle Union Teretory capitals
     if (Array.isArray(coordinates.in_ut_capital)) {
-      coordinates.in_ut_capital.forEach(({ lng, lat, desc }) => {
-        addMarker(map,markersRef,{ lng, lat, desc });
+       removeLayer(map,"ut-capital-names","ut-capital-labels");
+
+      const stateLabelsGeoJSON = createGeoJSON(coordinates.in_ut_capital);
+      // Remove old layer/source if they exist before adding new ones
+
+      // Add GeoJSON source for state names
+      map.current.addSource("ut-capital-labels", {
+        type: "geojson",
+        data: stateLabelsGeoJSON,
       });
+      // Add a symbol layer to show state names
+      map.current.addLayer({
+        id: "ut-capital-names",
+        type: "symbol",
+        source: "ut-capital-labels",
+        layout: {
+          "text-field": ["get", "name"],
+          "text-size": 14,
+          "text-anchor": "center",
+          "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+        },
+        paint: {
+          "text-color": "brown",
+          "text-halo-color": "#fff",
+          "text-halo-width": 1,
+        },
+      });
+
+    } else {
+      removeLayer(map,"ut-capital-names","ut-capital-labels");
+    }
     }
     // Handle mountain ranges with peaks
-    if (Array.isArray(coordinates.in_mountain_ranges)) {
-      coordinates.in_mountain_ranges.forEach(range => {
-        range.peaks.forEach(({ lng, lat, desc }) => {
-          addMarker(map,markersRef,{ lng, lat, desc });
-        });
-      });
-    }
-
-  };
+    // if (Array.isArray(coordinates.in_mountain_ranges)) {
+    //   coordinates.in_mountain_ranges.forEach(range => {
+    //     range.peaks.forEach(({ lng, lat, desc }) => {
+    //       addMarker(map,markersRef,{ lng, lat, desc });
+    //     });
+    //   });
+    // }
