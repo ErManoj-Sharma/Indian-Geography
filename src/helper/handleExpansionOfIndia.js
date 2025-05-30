@@ -32,7 +32,6 @@ export const handleExpansionOfIndia = (map, expansions) => {
     });
 
     map.current.on("click", "expansion-names", (e) => {
-      debugger
       const coordinates = e.lngLat;
 
       const { title, img_name: rawImgName, desc:rawDesc, name } = e.features[0].properties;

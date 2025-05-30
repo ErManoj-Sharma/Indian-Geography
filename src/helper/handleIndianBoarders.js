@@ -1,27 +1,30 @@
 import { createGeoJSON } from './createGeoJson';
 import { removeLayer } from './removeLayer';
-import { istGeoJson } from './createGeoJson';
 import * as maptilersdk from '@maptiler/sdk';
 import "@maptiler/sdk/dist/maptiler-sdk.css";
-
+import { durund_line } from '@/geojson/durund_line';
+import { LAC } from '@/geojson/LAC';
+import { Loc } from '@/geojson/Loc';
+import { Mac_Mohan_line } from '@/geojson/Mac_Mohan_line';
+import { redcliffLine } from '@/geojson/redcliff_line';
 /**
  * Handles Tropic of Cancer state labels and line layer.
  * @param {Object} map - Mapbox map instance (ref).
- * @param {Array} istStates - Array of states the IST passes through.
+ * @param {Array} in_border - Array of states the IST passes through.
  */
-export const handleISTLine = (map, istStates) => {
-    const stateLayerId = 'ist-st-names';
-    const stateSourceId = 'ist-st-labels';
-    const lineLayerId = 'ist-names';
-    const lineSourceId = 'ist-labels';
+export const handleIndianBoarders = (map, in_border) => {
+    const stateLayerId = 'border-pt-names';
+    const stateSourceId = 'border-pt-labels';
+    const lineLayerId = 'border-names';
+    const lineSourceId = 'border-labels';
 
     if (!map.current) return;
 
-    if (Array.isArray(istStates)) {
+    if (Array.isArray(in_border)) {
         removeLayer(map, stateLayerId, stateSourceId);
         removeLayer(map, lineLayerId, lineSourceId);
 
-        const stateLabelsGeoJSON = createGeoJSON(istStates);
+        const stateLabelsGeoJSON = createGeoJSON(in_border);
 
         map.current.addSource(stateSourceId, {
             type: 'geojson',
@@ -44,10 +47,19 @@ export const handleISTLine = (map, istStates) => {
                 'text-halo-width': 1,
             },
         });
-
+        const combinedGeoJSON = {
+            type: 'FeatureCollection',
+            features: [
+                ...durund_line.features,
+                ...LAC.features,
+                ...Loc.features,
+                ...Mac_Mohan_line.features,
+                ...redcliffLine.features,
+            ]
+        };
         map.current.addSource(lineSourceId, {
             type: 'geojson',
-            data: istGeoJson,
+            data: combinedGeoJSON,
         });
 
         map.current.addLayer({
@@ -55,12 +67,11 @@ export const handleISTLine = (map, istStates) => {
             type: 'line',
             source: lineSourceId,
             paint: {
-                'line-color': '#FF4500',
-                'line-dasharray': [2, 2],
+                'line-color': ['get', 'color'],  
                 'line-width': 2,
             },
         });
-        map.current.on("click", "ist-names", (e) => {
+        map.current.on("click", "border-names", (e) => {
             const coordinates = e.lngLat;
             const { name } = e.features[0].properties;
             // Create HTML content for popup with title and description
@@ -70,7 +81,7 @@ export const handleISTLine = (map, istStates) => {
 
             if (name) {
                 const nameEl = document.createElement('p');
-                nameEl.innerHTML = name.replace(/\n/g, '<br>'); 
+                 nameEl.innerHTML = name.replace(/\n/g, '<br>'); 
                 nameEl.style.margin = '0';
                 nameEl.style.textAlign = 'center'; // 👈 Center-align the text
                 popupContent.appendChild(nameEl);

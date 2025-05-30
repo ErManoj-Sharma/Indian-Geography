@@ -8,6 +8,7 @@ import { handleUTCapitals } from './handleUTCapitals';
 import { handleTropicOfCancer } from './handleTropicOfCancer';
 import { handleExpansionOfIndia } from './handleExpansionOfIndia';
 import { handleISTLine } from './handleISTline';
+import { handleIndianBoarders } from './handleIndianBoarders';
 export const updateMarkers = (map, markersRef, coordinates = []) => {
   if (!map.current) return;
 
@@ -81,5 +82,12 @@ export const updateMarkers = (map, markersRef, coordinates = []) => {
 
   }
 
+  // handle in_border
+  if (Array.isArray(coordinates.in_border)) {
+    handleIndianBoarders(map, coordinates.in_border);
+  } else {
+    removeLayer(map, "border-names", "border-labels");
+    removeLayer(map, "border-pt-names", "border-pt-labels");
+  }
 }
 
