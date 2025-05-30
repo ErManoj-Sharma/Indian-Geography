@@ -528,4 +528,12 @@ in_expansion:[
     desc: "Southernmost point of India (including islands).\nCoordinates: 6.7500° N, 93.8167° E"
   }
 ],
+
+ in_ist: [
+        { code: "UP", lng: 82.5714, lat: 27.0225, zoom: 3.88, desc: "UttarPradesh" },
+        { code: "MP", lng: 81.4126, lat: 24.2599, zoom: 3.88, desc: "Madhya Pradesh" },
+        { code: "CG", lng: 82.6339, lat: 22.2514, zoom: 3.88, desc: "Chhattisgarh" },
+        { code: "OD", lng: 83.3639, lat: 19.5726, zoom: 3.88, desc: "Odisa" },
+        { code: "AP", lng: 82.9882, lat: 16.8315, zoom: 3.88, desc: "AndraPradesh" },
+    ],
 };

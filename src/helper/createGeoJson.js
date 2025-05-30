@@ -118,3 +118,18 @@ export const ExpansionLinesGeoJson = {
 
   ]
 };
+
+export const istGeoJson = 
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [82.5, 32.4394],
+      [82.5, 8.4394]
+    ]
+  },
+  "properties": {
+    "name": "India Standard Time (IST) \n 82.5°E \n UP,MP,CG,OD,AP" ,
+  }
+}

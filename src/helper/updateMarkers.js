@@ -7,6 +7,7 @@ import { handleUTs } from './handleUts';
 import { handleUTCapitals } from './handleUTCapitals';
 import { handleTropicOfCancer } from './handleTropicOfCancer';
 import { handleExpansionOfIndia } from './handleExpansionOfIndia';
+import { handleISTLine } from './handleISTline';
 export const updateMarkers = (map, markersRef, coordinates = []) => {
   if (!map.current) return;
 
@@ -70,5 +71,15 @@ export const updateMarkers = (map, markersRef, coordinates = []) => {
   } else {
     removeLayer(map, "expansion-names", "expansion-labels");
   }
+
+  // Handle Union tropic of cancer
+  if (Array.isArray(coordinates.in_ist)) {
+    handleISTLine(map, coordinates.in_ist);
+  } else {
+    removeLayer(map, "ist-st-names", "ist-st-labels");
+    removeLayer(map, "ist-names", "ist-labels");
+
+  }
+
 }
 
