@@ -1,7 +1,8 @@
 import { createGeoJSON } from './createGeoJson';
 import { removeLayer } from './removeLayer';
 import { TropicofCancerGeoJson } from './createGeoJson';
-
+import * as maptilersdk from '@maptiler/sdk';
+import "@maptiler/sdk/dist/maptiler-sdk.css";
 /**
  * Handles Tropic of Cancer state labels and line layer.
  * @param {Object} map - Mapbox map instance (ref).
@@ -58,6 +59,29 @@ export const handleTropicOfCancer = (map, tropicStates) => {
         'line-width': 2,
       },
     });
+
+     map.current.on("click", "tropic-of-cancer-names", (e) => {
+                const coordinates = e.lngLat;
+                const { name } = e.features[0].properties;
+                // Create HTML content for popup with title and description
+                const popupContent = document.createElement('div');
+                popupContent.style.backgroundColor = 'white';
+                popupContent.style.color = 'black';
+    
+                if (name) {
+                    const nameEl = document.createElement('p');
+                    nameEl.textContent = name;
+                    nameEl.style.margin = '0';
+                    nameEl.style.textAlign = 'center'; // 👈 Center-align the text
+                    popupContent.appendChild(nameEl);
+                }
+    
+                new maptilersdk.Popup({ offset: 25 }).setDOMContent(popupContent)
+                    .setLngLat(coordinates)
+                    .setHTML(popupContent.outerHTML)
+                    .addTo(map.current);
+            })
+    
   } else {
     removeLayer(map, stateLayerId, stateSourceId);
     removeLayer(map, lineLayerId, lineSourceId);

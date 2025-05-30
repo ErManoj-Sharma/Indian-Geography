@@ -23,7 +23,7 @@ export const TropicofCancerGeoJson = {
     ]
   },
   "properties": {
-    "name": "Tropic of Cancer"
+    "name": "Tropic of Cancer \n 23° 30' North \n GJ,RJ,MP,CG,JHK,WB,TP,MZ",
   }
 }
 
