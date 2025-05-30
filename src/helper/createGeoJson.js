@@ -86,6 +86,35 @@ export const ExpansionLinesGeoJson = {
         "color": "#FFA500"  // orange
       }
     },
-    
+
+    {
+  "type": "Feature",
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [68, 23.4394],
+      [97, 28.0]
+    ]
+  },
+  "properties": {
+    "name": "West to East\n(68°E to 97°E)\n2933 KM\nKutch (GJ) - Walong (AP)",
+    "color": "#FFA500"
+  }
+},
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [74.7696, 37.0744],
+      [77.551557, 8.077617]
+    ]
+  },
+  "properties": {
+    "name": "North to South\n(37°N to 8°N)\n3214 KM\nIndira Col (Ladakh) - Kanyakumari (TN)",
+    "color": "#FFA500"
+  }
+}
+
   ]
 };

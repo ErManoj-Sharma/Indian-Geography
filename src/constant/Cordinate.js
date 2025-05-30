@@ -487,10 +487,45 @@ in_tiger_reserve:[
   }
 ],
 in_expansion:[
-  { code: "In-EXP-N", lng: 74.7696, lat: 37.0744 , zoom: 3.88, desc: "Indira Col(Ladhak)\n37 Degree 6 Minutes North" },
-  { code: "In-EXP-S", lng: 77.551557, lat: 8.077617, zoom: 3.88, desc: "Cape Camorin(Tamilnadu)\n8 Degree 4 Minutes North" },
-  { code: "IN-EXP-E", lng:  97.39464, lat: 28.01418, zoom: 3.88, desc: "Valagu(ArunachalPradesh)\n97 Degree 25 Minutes East" },
-  { code: "IN-EXp-W", lng: 68.5321, lat: 23.5694, zoom: 3.88, desc: "Kach(Gujrat)\n 68 Degree 7 Minutes East" },
-  { code: "IN-EXP-SSEA", lng: 93.8167, lat: 6.75, zoom: 3.88, desc: "Indira Point(Andman & Nikobar Island) \n 6 Degree 4 Minutes North" },
-]
+  {
+    code: "In-EXP-N",
+    lng: 74.7696,
+    lat: 37.0744,
+    zoom: 3.88,
+    title: "Indira Col (Ladakh)",
+    desc: "Northernmost point of India.\nCoordinates: 37.0744° N, 74.7696° E"
+  },
+  {
+    code: "In-EXP-S",
+    lng: 77.551557,
+    lat: 8.077617,
+    zoom: 3.88,
+    title: "Cape Comorin (Tamil Nadu)",
+    desc: "Southernmost point of mainland India.\nCoordinates: 8.0776° N, 77.5516° E"
+  },
+  {
+    code: "IN-EXP-E",
+    lng: 97.39464,
+    lat: 28.01418,
+    zoom: 3.88,
+    title: "Kibithu (Arunachal Pradesh)",
+    desc: "Easternmost point of India.\nCoordinates: 28.0142° N, 97.3946° E"
+  },
+  {
+    code: "IN-EXp-W",
+    lng: 68.5321,
+    lat: 23.5694,
+    zoom: 3.88,
+    title: "Sir Creek (Kutch, Gujarat)",
+    desc: "Westernmost point of India.\nCoordinates: 23.5694° N, 68.5321° E"
+  },
+  {
+    code: "IN-EXP-SSEA",
+    lng: 93.8167,
+    lat: 6.75,
+    zoom: 3.88,
+    title: "Indira Point (Andaman & Nicobar Islands)",
+    desc: "Southernmost point of India (including islands).\nCoordinates: 6.7500° N, 93.8167° E"
+  }
+],
 };
