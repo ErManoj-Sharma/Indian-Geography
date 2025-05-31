@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 export default function TopBar({ toggleDrawer }) {
     return (
         <Box
-            className="absolute top-0 left-0 w-full z-10"
+            className="absolute top-0 left-0 w-full z-2"
             sx={{
                 flexGrow: 1,
                 backgroundColor: 'transparent',

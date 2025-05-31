@@ -7,6 +7,9 @@ import { updateMarkers } from '@/helper/updateMarkers';
 import { getCordinateForCodes } from '@/helper/getCordinateForCodes';
 import { useDispatch } from "react-redux";
 import InfoSideBar from './InfoSideBar';
+import { GeocodingControl } from "@maptiler/geocoding-control/maptilersdk"
+import "@maptiler/geocoding-control/style.css";
+
 export default function Map({ open,
   setOpen,
   toggleDrawer, selectedCodes }) {
@@ -34,6 +37,9 @@ export default function Map({ open,
       hash: true,
     });
 
+    const gc = new GeocodingControl( { country: 'IN' });
+    map.current.addControl(gc);
+    
   }, [india.lng, india.lat, india.zoom, selectedCodes]);
 
   return (
