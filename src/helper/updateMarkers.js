@@ -9,14 +9,14 @@ import { handleTropicOfCancer } from './handleTropicOfCancer';
 import { handleExpansionOfIndia } from './handleExpansionOfIndia';
 import { handleISTLine } from './handleISTline';
 import { handleIndianBoarders } from './handleIndianBoarders';
-export const updateMarkers = (map, markersRef, coordinates = []) => {
+export const updateMarkers = (map, markersRef, coordinates = [], dispatch) => {
   if (!map.current) return;
 
   markersRef.current.forEach(marker => marker.remove());
   markersRef.current = [];
   // Handle single capital
   if (coordinates.in_capital) {
-    handleCapitalMarker(map, markersRef, coordinates.in_capital);
+    handleCapitalMarker(map, markersRef, dispatch, coordinates.in_capital);
   }
 
   // Handle state capitals
@@ -59,15 +59,15 @@ export const updateMarkers = (map, markersRef, coordinates = []) => {
   // handle in_tiger_reserves
   if (Array.isArray(coordinates.in_tiger_reserve)) {
     coordinates.in_tiger_reserve.forEach(({ lng, lat, title, desc, state }) => {
-      addMarker(map, markersRef, { lng, lat, title, desc, state }, 'tiger_reserve');
+      addMarker(map, markersRef, dispatch, { lng, lat, title, desc, state }, 'tiger_reserve',);
     });
   }
 
-   // handle in_expansion
+  // handle in_expansion
   if (Array.isArray(coordinates.in_expansion)) {
-    handleExpansionOfIndia(map,coordinates.in_expansion);
+    handleExpansionOfIndia(map, coordinates.in_expansion);
     coordinates.in_expansion.forEach(({ lng, lat, title, desc }) => {
-      addMarker(map, markersRef, { lng, lat, title, desc }, '');
+      addMarker(map, markersRef, dispatch, { lng, lat, title, desc }, '');
     });
   } else {
     removeLayer(map, "expansion-names", "expansion-labels");
